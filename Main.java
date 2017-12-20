@@ -16,6 +16,7 @@ public class Main {
         }
         //2 - Обработка
         ArrayList<String> output = Processing.output(ReadInput.getIpAddressStart(), ReadInput.getIpAddressFinish());
+        output.remove(0); //Проще убрать первое лишнее вхождение, чем возиться с последними
         //3 - Результат
         for (String anOutput : output) System.out.println(anOutput);
     }

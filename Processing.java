@@ -21,21 +21,46 @@ class Processing {
         switch (intsOfStart[0]) {
             case (192): {
                 while (!Arrays.equals(intsOfStart, intsOfEnd)) {
+                    result.add(intsOfStart[0] + "." + intsOfStart[1] + "." + intsOfStart[2] + "." + intsOfStart[3]);
                     intsOfStart[3]++;
                     if (intsOfStart[3] == line) {
                         intsOfStart[2]++;
                         intsOfStart[3] = 0;
                     }
-                    result.add(intsOfStart[0] + "." + intsOfStart[1] + "." + intsOfStart[2] + "." + intsOfStart[3]);
                 }
                 break;
             }
 
             case (172): {
+                while (!Arrays.equals(intsOfStart, intsOfEnd)) {
+                    result.add(intsOfStart[0] + "." + intsOfStart[1] + "." + intsOfStart[2] + "." + intsOfStart[3]);
+                    intsOfStart[3]++;
+                    if (intsOfStart[3] == line) {
+                        intsOfStart[2]++;
+                        intsOfStart[3] = 0;
+                    }
+                    if (intsOfStart[2] == line) {
+                        intsOfStart[1]++;
+                        intsOfStart[2] = 0;
+                    }
+                }
                 break;
             }
 
             case (10): {
+                while (!Arrays.equals(intsOfStart, intsOfEnd)) {
+                    result.add(intsOfStart[0] + "." + intsOfStart[1] + "." + intsOfStart[2] + "." + intsOfStart[3]);
+                    intsOfStart[3]++;
+                    if (intsOfStart[3] == line) {
+                        intsOfStart[2]++;
+                        intsOfStart[3] = 0;
+                    }
+                    if (intsOfStart[2] == line) {
+                        intsOfStart[1]++;
+                        intsOfStart[2] = 0;
+                    }
+
+                }
                 break;
             }
 
