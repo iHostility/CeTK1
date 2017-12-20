@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Main {
     public static void main(String[] args) {
         System.out.println("Добро пожаловать!\n" +
@@ -9,11 +11,12 @@ public class Main {
         //1 - Считывание
         try {
             new ReadInput().read();
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println("Сорян");
         }
         //2 - Обработка
-
+        ArrayList<String> output = Processing.output(ReadInput.getIpAddressStart(), ReadInput.getIpAddressFinish());
         //3 - Результат
+        for (String anOutput : output) System.out.println(anOutput);
     }
 }

@@ -3,8 +3,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class ReadInput {
-    private String ipAddressStart;
-    private String ipAddressFinish;
+
+    private static String ipAddressStart;
+    private static String ipAddressFinish;
     private Checks check = new Checks();
 
 
@@ -12,6 +13,7 @@ public class ReadInput {
         BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
         String line;
         boolean isValidInput;
+        boolean isEqals;
         System.out.println(
                 "Введите стартовый IP-адрес или \"q\", чтобы выйти из программы и нажмите клавишу \"Enter\"");
         //Шаг 1
@@ -29,19 +31,20 @@ public class ReadInput {
             if (check.ipRangeCheck(line)) ipAddressFinish = line;
             else System.out.println("Недопустимое конечное значение диапазона.");
             isValidInput = check.ipFinishOverStartCheck(ipAddressStart, ipAddressFinish);
+            isEqals = check.ipEqalsCheck(ipAddressStart, ipAddressFinish);
         }
-        while (!line.equalsIgnoreCase("q") ^ check.ipRangeCheck(line) && isValidInput);
+        while (!line.equalsIgnoreCase("q") ^ check.ipRangeCheck(line) && isValidInput && !isEqals);
         if (line.equalsIgnoreCase("q")) check.isExit(line);
 
         reader.close();
     }
 
 
-    public String getIpAddressStart() {
+    public static String getIpAddressStart() {
         return ipAddressStart;
     }
 
-    public String getIpAddressFinish() {
+    public static String getIpAddressFinish() {
         return ipAddressFinish;
     }
 }
